@@ -4,13 +4,13 @@ export default function Navigation() {
   return (
     <ul>
       <li>
-        <Link href="/components/Spotlight/index.js">Spotlight</Link>
+        <Link href="/">Spotlight</Link>
       </li>
       <li>
-        <Link href="/components/ArtPieces/index.js">ArtPieces</Link>
+        <Link href="/art-pieces">ArtPieces</Link>
       </li>
       <li>
-        <Link href="/components/Favorites/index.js">Favorites</Link>
+        <Link href="/favorites">Favorites</Link>
       </li>
     </ul>
   );

@@ -17,7 +17,6 @@ export default function App({ Component, pageProps }) {
 
   if (error) return <div>Error: {error.message}</div>;
 
-  console.log("result", data);
   return (
     <>
       <GlobalStyle />

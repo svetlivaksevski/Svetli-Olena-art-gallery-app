@@ -14,6 +14,7 @@ export default function ArtPieceDetailsPage({ pieces }) {
       artist={newArtPiece.artist}
       year={newArtPiece.year}
       genre={newArtPiece.genre}
+      colors={newArtPiece.colors}
     />
   );
 }

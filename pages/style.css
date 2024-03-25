@@ -1,9 +1,13 @@
+.gallery-containers-style {
+}
+
 img {
-  width: 50px;
+  width: 200px;
   height: auto;
 }
 
-.gallery-containers-style {
-  width: 50px;
-  height: auto;
+.color-palette {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

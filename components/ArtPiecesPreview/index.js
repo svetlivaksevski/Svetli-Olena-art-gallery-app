@@ -1,17 +1,12 @@
 import React from "react";
 
-export default function ArtPiecePreview({ imageSource, name, artist }) {
+export default function ArtPiecePreview({ name, artist, imageSource }) {
+  console.log("result", name);
   return (
-    <div className="art-piece-preview">
-      <img
-        src={imageSource}
-        alt={name}
-        sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-      />
+    <div>
+      <img src={imageSource} alt={name} />
       <h3>{name}</h3>
-      <p>By {artist}</p>
+      <p>By: {artist}</p>
     </div>
   );
 }

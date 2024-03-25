@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ArtPiecePreview({ name, artist, imageSource, slug }) {
   return (
-    <div>
+    <div className="gallery-containers-style">
       <img src={imageSource} alt={name} />
       <h3>{name}</h3>
       <p>By: {artist}</p>

@@ -25,8 +25,6 @@ export default function SpotlightPage({ pieces }) {
   const spotlightPiece =
     pieces[Math.floor(Math.random() * (pieces.length - 1))];
 
-  console.log("result", spotlightPiece);
-
   return (
     <>
       <h1>Art Gallery - Spotlight</h1>

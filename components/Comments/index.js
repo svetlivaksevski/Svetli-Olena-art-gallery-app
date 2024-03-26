@@ -1,16 +1,20 @@
 import React from "react";
 
-export default function Comments({ comments = [] }) {
+export default function Comments({ comments, slug }) {
+  const filteredComments = comments.filter((comment) => comment.slug === slug);
+
   return (
     <div className="comments-container">
       <h3>Comments</h3>
-      {comments.length === 0 ? (
+      {filteredComments?.length === 0 ? (
         <p>No comments yet.</p>
       ) : (
         <ul>
-          {comments.map((comment, index) => (
-            <li key={index}>
-              <div className="comment-text">"{comment.text}"</div>
+          {filteredComments?.map((comment) => (
+            <li>
+              <div className="comment-text" key={slug}>
+                "{comment.comment}"
+              </div>
               <div className="comment-date-time">
                 ({comment.date}, {comment.time})
               </div>

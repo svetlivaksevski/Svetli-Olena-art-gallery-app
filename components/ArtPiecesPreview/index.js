@@ -13,8 +13,10 @@ export default function ArtPiecePreview({
   return (
     <div className="gallery-containers-style">
       <FavoriteButton
+        onToggleFavorite={() => {
+          return onToggleFavorite(slug, isFavorite);
+        }}
         isFavorite={isFavorite}
-        onToggleFavorite={() => (onToggleFavorite = { onToggleFavorite })}
       />
       <img src={imageSource} alt={name} />
       <h3>{name}</h3>

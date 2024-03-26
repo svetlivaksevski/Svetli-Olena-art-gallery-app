@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import useSWR from "swr";
 import useLocalStorageState from "use-local-storage-state";
 import "./style.css";
+import { useState } from "react";
 
 const fetcher = async (key) => {
   const response = await fetch(key);
@@ -15,42 +16,43 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  //Handle Toggle favorite
   const [artPiecesInfo, setArtPiecesInfo] = useLocalStorageState(
     "artPiecesInfo",
     { defaultValue: [] }
   );
+  const [comments, setComments] = useLocalStorageState("comments", {
+    defaultValue: [],
+  });
+  //Handle Toggle favorite
 
   function handleToggle(slug) {
-    if (artPiecesInfo.find((piece) => piece.slug === slug)) {
+    console.log("slug" + slug);
+    const info = artPiecesInfo.find((piece) => piece.slug === slug);
+    console.log(artPiecesInfo);
+    if (info) {
       setArtPiecesInfo(
-        artPiecesInfo.map((artpieceinfo) =>
-          artpieceinfo.slug === slug
-            ? { ...artpieceinfo, isFavorite: !artpieceinfo.isFavorite }
-            : artpieceinfo
+        artPiecesInfo.map((piece) =>
+          piece.slug === slug
+            ? { ...piece, isFavorite: !piece.isFavorite }
+            : piece
         )
       );
+      console.log("If", artPiecesInfo);
     } else {
       setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
+      console.log("else", artPiecesInfo);
     }
   }
 
   // Handle comments
-  function handleCommentSubmit(comment, slug) {
-    const pieceIndex = artPiecesInfo.findIndex((piece) => piece.slug === slug);
 
-    setArtPiecesInfo((prevArtPiecesInfo) => {
-      return [...prevArtPiecesInfo].map((artpieceinfo, index) =>
-        index === pieceIndex
-          ? {
-              ...artpieceinfo,
-              comments: [...(artpieceinfo.comments || []), comment],
-            }
-          : artpieceinfo
-      );
+  function handleAddComment(newComment, slug) {
+    const date = new Date().toLocaleDateString("en-us", {
+      dateStyle: "medium",
     });
+    setComments([{ id: slug, date, ...newComment }, ...comments]);
   }
-  console.log(data);
+
   if (isLoading) return <div>Loading art pieces...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
@@ -62,9 +64,10 @@ export default function App({ Component, pageProps }) {
           pieces={data}
           onToggle={artPiecesInfo}
           artPiecesInfo={artPiecesInfo}
-          isFavorite={artPiecesInfo.isFavorite}
+          isFavorite={artPiecesInfo}
           onToggleFavorite={handleToggle}
-          onSubmitComment={handleCommentSubmit}
+          onSubmitComment={handleAddComment}
+          comments={comments}
         />
       </Layout>
     </>

@@ -1,5 +1,6 @@
 import Comments from "../Comments";
 import CommentForm from "../CommentForm";
+import FavoriteButton from "../FavoriteButton/FavoriteButton.js";
 
 export default function ArtPieceDetails({
   image,
@@ -7,16 +8,28 @@ export default function ArtPieceDetails({
   artist,
   year,
   genre,
+  colors,
   slug,
   artPiecesInfo,
   onSubmitComment,
-  colors,
+  setComments,
+  comments,
+  pieces,
+  onToggleFavorite,
 }) {
-  const artPiece = artPiecesInfo?.find((piece) => piece.slug === slug);
-  console.log("colors", colors);
   return (
     <div className="art-piece-details">
       <img src={image} alt={name} />
+      <FavoriteButton
+        onToggleFavorite={() => {
+          return onToggleFavorite(pieces.slug);
+        }}
+        slug={pieces.slug}
+        isFavorite={
+          artPiecesInfo?.find((piece) => piece.slug === pieces.slug)
+            ?.isFavorite || false
+        }
+      />
       <h2>{name}</h2>
       <p>By {artist}</p>
       <p>Year: {year}</p>
@@ -30,9 +43,10 @@ export default function ArtPieceDetails({
           );
         })}
       </div>
-      <Comments comments={artPiece?.comments || []} />
+      <Comments comments={comments} />
       <CommentForm
-        onSubmitComment={(comment) => onSubmitComment(comment, slug)}
+        onSubmitComment={onSubmitComment}
+        setComments={setComments}
         slug={slug}
       />
       <button onClick={() => window.history.back()}>Back</button>

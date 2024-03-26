@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
+export default function FavoriteButton({
+  isFavorite,
+  onToggleFavorite,
+  artPiecesInfo,
+  slug,
+}) {
+  console.log("isFavorite: " + isFavorite);
   return (
     <>
       <button
@@ -8,7 +14,7 @@ export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
         className="favorite-button"
         onClick={onToggleFavorite}
       >
-        {isFavorite === false ? "👎" : "👍"}
+        {isFavorite ? "👎" : "👍"}
       </button>
     </>
   );

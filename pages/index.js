@@ -1,7 +1,11 @@
 import React from "react";
 import Spotlight from "../components/Spotlight/index.js";
 
-export default function SpotlightPage({ pieces, onToggleFavorite }) {
+export default function SpotlightPage({
+  pieces,
+  artPiecesInfo,
+  onToggleFavorite,
+}) {
   const spotlightPiece =
     pieces[Math.floor(Math.random() * (pieces.length - 1))];
 
@@ -11,6 +15,7 @@ export default function SpotlightPage({ pieces, onToggleFavorite }) {
 
       {spotlightPiece && (
         <Spotlight
+          artPiecesInfo={artPiecesInfo}
           randomPieceInfo={spotlightPiece}
           onToggleFavorite={onToggleFavorite}
         />

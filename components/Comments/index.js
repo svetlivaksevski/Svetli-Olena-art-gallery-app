@@ -14,7 +14,8 @@ export default function Comments({ comments, slug }) {
             <li key={comment.comment}>
               <div className="comment-text">{comment.comment}</div>
               <div className="comment-date-time">
-                ({comment.date}, {comment.time})
+                ({comment.date}
+                {","} {comment.time})
               </div>
             </li>
           ))}

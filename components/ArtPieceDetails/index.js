@@ -54,18 +54,9 @@ export default function ArtPieceDetails({
       <p>Year: {year}</p>
       <p>Genre: {genre}</p>
       <DivColorPalette>
-        {
-          /* {colors.map((color) => {
-          return (
-            <p key={color} style={{ backgroundColor: color }}>
-              -
-            </p>
-          );
-        })} */
-          colors.map((color) => (
-            <ColorCircle key={color} color={color}></ColorCircle>
-          ))
-        }
+        {colors.map((color) => (
+          <ColorCircle key={color} color={color}></ColorCircle>
+        ))}
       </DivColorPalette>
       <Comments comments={comments} />
       <CommentForm

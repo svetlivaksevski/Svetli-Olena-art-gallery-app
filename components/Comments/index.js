@@ -1,8 +1,6 @@
 import React from "react";
-
 export default function Comments({ comments, slug }) {
   const filteredComments = comments.filter((comment) => comment.slug === slug);
-
   return (
     <div className="comments-container">
       <h3>Comments</h3>

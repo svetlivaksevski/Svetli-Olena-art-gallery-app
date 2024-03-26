@@ -1,8 +1,16 @@
 import Link from "next/link";
+import styles from "@/styles";
+import styled from "styled-components";
+
+const Ul1 = styled.ul`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`;
 
 export default function Navigation() {
   return (
-    <ul>
+    <Ul1>
       <li>
         <Link href="/">Spotlight</Link>
       </li>
@@ -12,6 +20,6 @@ export default function Navigation() {
       <li>
         <Link href="/favorites">Favorites</Link>
       </li>
-    </ul>
+    </Ul1>
   );
 }

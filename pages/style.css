@@ -1,13 +1,13 @@
 .gallery-containers-style {
 }
 
-img {
+/* img {
   width: 200px;
   height: auto;
-}
+} */
 
-.color-palette {
+/* .color-palette {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
+} */

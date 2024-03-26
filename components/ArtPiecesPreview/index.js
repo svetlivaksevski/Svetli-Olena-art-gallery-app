@@ -1,5 +1,14 @@
 import React from "react";
 import FavoriteButton from "../FavoriteButton/FavoriteButton.js";
+import styled from "styled-components";
+
+const ImagePreview = styled.img`
+  width: 200px;
+  height: auto;
+`;
+const DivGalleryContainer = styled.div`
+  height: 900 px;
+`;
 
 export default function ArtPiecePreview({
   name,
@@ -10,19 +19,19 @@ export default function ArtPiecePreview({
   isFavorite,
 }) {
   return (
-    <div className="gallery-containers-style">
+    <DivGalleryContainer>
       <FavoriteButton
         onToggleFavorite={() => {
           return onToggleFavorite(slug, isFavorite);
         }}
         isFavorite={isFavorite}
       />
-      <img src={imageSource} alt={name} />
+      <ImagePreview src={imageSource} alt={name} />
       <h3>{name}</h3>
       <p>By: {artist}</p>
       <div>
         <a href={`art-pieces/${slug}`}>More information</a>
       </div>
-    </div>
+    </DivGalleryContainer>
   );
 }

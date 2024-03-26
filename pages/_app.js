@@ -27,9 +27,8 @@ export default function App({ Component, pageProps }) {
   //Handle Toggle favorite
 
   function handleToggle(slug) {
-    console.log("slug" + slug);
     const info = artPiecesInfo.find((piece) => piece.slug === slug);
-    console.log(artPiecesInfo);
+
     if (info) {
       setArtPiecesInfo(
         artPiecesInfo.map((piece) =>
@@ -38,10 +37,8 @@ export default function App({ Component, pageProps }) {
             : piece
         )
       );
-      console.log("If", artPiecesInfo);
     } else {
       setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
-      console.log("else", artPiecesInfo);
     }
   }
 

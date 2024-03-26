@@ -1,14 +1,4 @@
 export default function CommentForm({ onSubmitComment, slug }) {
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   const formData = new FormData(event.target);
-  //   const comment = formData.get("comment");
-  //   onSubmitComment(comment, slug);
-  //   event.target.reset();
-  // }
-
-  console.log("SLUG in form: ", slug);
-
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);

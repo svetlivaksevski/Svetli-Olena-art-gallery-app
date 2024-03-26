@@ -1,12 +1,6 @@
 import React from "react";
 
-export default function FavoriteButton({
-  isFavorite,
-  onToggleFavorite,
-  artPiecesInfo,
-  slug,
-}) {
-  console.log("isFavorite: " + isFavorite);
+export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
   return (
     <>
       <button

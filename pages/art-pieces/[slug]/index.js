@@ -5,7 +5,6 @@ export default function ArtPieceDetailsPage({
   pieces,
   onSubmitComment,
   comments,
-  isFavorite,
   onToggleFavorite,
   artPiecesInfo,
 }) {

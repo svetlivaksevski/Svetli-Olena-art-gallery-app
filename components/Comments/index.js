@@ -1,8 +1,6 @@
 import React from "react";
-
 export default function Comments({ comments, slug }) {
   const filteredComments = comments.filter((comment) => comment.slug === slug);
-
   return (
     <div className="comments-container">
       <h3>Comments</h3>
@@ -11,12 +9,11 @@ export default function Comments({ comments, slug }) {
       ) : (
         <ul>
           {filteredComments?.map((comment) => (
-            <li>
-              <div className="comment-text" key={slug}>
-                "{comment.comment}"
-              </div>
+            <li key={comment.comment}>
+              <div className="comment-text">{comment.comment}</div>
               <div className="comment-date-time">
-                ({comment.date}, {comment.time})
+                ({comment.date}
+                {","} {comment.time})
               </div>
             </li>
           ))}

@@ -9,7 +9,6 @@ export default function ArtPiecePreview({
   onToggleFavorite,
   isFavorite,
 }) {
-  console.log("clicke me", onToggleFavorite);
   return (
     <div className="gallery-containers-style">
       <FavoriteButton

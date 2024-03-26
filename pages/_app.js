@@ -20,6 +20,7 @@ export default function App({ Component, pageProps }) {
     "artPiecesInfo",
     { defaultValue: [] }
   );
+
   const [comments, setComments] = useLocalStorageState("comments", {
     defaultValue: [],
   });

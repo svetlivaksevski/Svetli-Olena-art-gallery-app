@@ -1,15 +1,35 @@
 import React from "react";
 import FavoriteButton from "../FavoriteButton/FavoriteButton.js";
+import styled from "styled-components";
 
+const Heading = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 20px;
+`;
+
+const Image = styled.img`
+  width: 250px;
+  height: auto;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+  margin-top: 20px;
+`;
 export default function Spotlight({
   randomPieceInfo,
   onToggleFavorite,
   artPiecesInfo,
-  pieces,
-  isFavorite,
 }) {
   return (
-    <div className="spotlight">
+    <Container>
+      <Heading>Spotlight Piece</Heading>
       <FavoriteButton
         onToggleFavorite={() => {
           return onToggleFavorite(randomPieceInfo.slug);
@@ -20,9 +40,8 @@ export default function Spotlight({
             ?.isFavorite || false
         }
       />
-      <h2>Spotlight Piece</h2>
-      <img src={randomPieceInfo.imageSource} alt={randomPieceInfo.name} />
+      <Image src={randomPieceInfo.imageSource} alt={randomPieceInfo.name} />
       <p>By {randomPieceInfo.artist}</p>
-    </div>
+    </Container>
   );
 }

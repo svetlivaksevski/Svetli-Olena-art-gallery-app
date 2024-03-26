@@ -1,4 +1,15 @@
 import ArtPiecePreview from "../../components/ArtPiecesPreview/";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+`;
+
+const List = styled.div`
+  list-style-type: none;
+`;
 
 export default function FavoritesPage({
   artPiecesInfo,
@@ -24,12 +35,12 @@ export default function FavoritesPage({
     .filter(Boolean);
 
   return (
-    <div>
+    <>
       <h1>My favorite art pieces</h1>
-      <ul>
+      <Container>
         {favoritePieces.length > 0 ? (
           favoritePieces.map((piece) => (
-            <li key={piece.slug}>
+            <List key={piece.slug}>
               <ArtPiecePreview
                 name={piece.name}
                 artist={piece.artist}
@@ -38,12 +49,12 @@ export default function FavoritesPage({
                 onToggleFavorite={onToggleFavorite}
                 isFavorite={piece.isFavorite}
               />
-            </li>
+            </List>
           ))
         ) : (
           <p>You haven't selected any art pieces as favorites yet.</p>
         )}
-      </ul>
-    </div>
+      </Container>
+    </>
   );
 }

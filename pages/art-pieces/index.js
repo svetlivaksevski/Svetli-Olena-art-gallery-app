@@ -4,7 +4,6 @@ import ArtPieces from "../../components/ArtPieces";
 export default function ArtPiecesPage({
   pieces,
   onToggleFavorite,
-  isFavorite,
   artPiecesInfo,
 }) {
   return (

@@ -9,10 +9,18 @@ const DivArtPieces = styled.div`
   gap: 20px;
 `;
 
+const Heading = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 20px;
+`;
+
 export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
   return (
     <>
-      <h2>Art Pieces</h2>
+      <Heading>Art Pieces</Heading>
       <DivArtPieces>
         {pieces.map((piece) => (
           <ArtPiecePreview

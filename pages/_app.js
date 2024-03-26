@@ -1,8 +1,6 @@
 import Layout from "@/components/Layout";
 import useSWR from "swr";
 import useLocalStorageState from "use-local-storage-state";
-import "./style.css";
-import { useState } from "react";
 
 const fetcher = async (key) => {
   const response = await fetch(key);

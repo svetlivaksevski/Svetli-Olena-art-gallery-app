@@ -1,5 +1,14 @@
 import React from "react";
 import Spotlight from "../components/Spotlight/index.js";
+import styled from "styled-components";
+
+const Heading = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 20px;
+`;
 
 export default function SpotlightPage({
   pieces,
@@ -11,7 +20,7 @@ export default function SpotlightPage({
 
   return (
     <>
-      <h1>Art Gallery - Spotlight</h1>
+      <Heading>Art Gallery - Spotlight</Heading>
 
       {spotlightPiece && (
         <Spotlight

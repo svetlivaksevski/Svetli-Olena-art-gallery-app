@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "@/styles";
 import styled from "styled-components";
 
 const Ul1 = styled.ul`
@@ -7,6 +6,13 @@ const Ul1 = styled.ul`
   flex-direction: row;
   justify-content: space-evenly;
   list-style-type: none;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  bottom: 0;
+  padding: 30px;
+  margin-bottom: 0;
+  font-size: 18px;
 `;
 
 export default function Navigation() {

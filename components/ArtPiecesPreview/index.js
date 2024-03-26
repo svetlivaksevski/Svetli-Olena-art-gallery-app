@@ -9,7 +9,7 @@ const ImagePreview = styled.img`
   transition: 0.5s ease-in-out;
 
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
   }
 `;
 const DivGalleryContainer = styled.div`
@@ -32,7 +32,9 @@ export default function ArtPiecePreview({
         }}
         isFavorite={isFavorite}
       />
-      <ImagePreview src={imageSource} alt={name} />
+      <a href={`art-pieces/${slug}`}>
+        <ImagePreview src={imageSource} alt={name} />
+      </a>
 
       <h3>{name}</h3>
       <p>By: {artist}</p>

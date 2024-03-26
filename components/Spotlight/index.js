@@ -41,7 +41,9 @@ export default function Spotlight({
             ?.isFavorite || false
         }
       />
-      <Image src={randomPieceInfo.imageSource} alt={randomPieceInfo.name} />
+      <a href={`art-pieces/${randomPieceInfo.slug}`}>
+        <Image src={randomPieceInfo.imageSource} alt={randomPieceInfo.name} />
+      </a>
       <p>By {randomPieceInfo.artist}</p>
     </Container>
   );

@@ -1,0 +1,43 @@
+.gallery-containers-style {
+}
+
+/* img {
+  width: 200px;
+  height: auto;
+} */
+
+/* .color-palette {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+} */
+
+.comment-text-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.comment-button {
+  width: 60px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #008080;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 10px;
+  gap: 5px;
+}

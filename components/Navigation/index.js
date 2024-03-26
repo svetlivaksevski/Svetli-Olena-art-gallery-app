@@ -6,6 +6,7 @@ const Ul1 = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  list-style-type: none;
 `;
 
 export default function Navigation() {

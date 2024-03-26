@@ -21,6 +21,17 @@ const ImageDetails = styled.img`
   height: auto;
 `;
 
+const ArtPieceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Button = styled.div`
+  width: 30%;
+  font-size: 20px;
+`;
+
 export default function ArtPieceDetails({
   image,
   name,
@@ -37,7 +48,7 @@ export default function ArtPieceDetails({
   onToggleFavorite,
 }) {
   return (
-    <div className="art-piece-details">
+    <ArtPieceContainer>
       <ImageDetails src={image} alt={name} />
       <FavoriteButton
         onToggleFavorite={() => {
@@ -54,18 +65,9 @@ export default function ArtPieceDetails({
       <p>Year: {year}</p>
       <p>Genre: {genre}</p>
       <DivColorPalette>
-        {
-          /* {colors.map((color) => {
-          return (
-            <p key={color} style={{ backgroundColor: color }}>
-              -
-            </p>
-          );
-        })} */
-          colors.map((color) => (
-            <ColorCircle key={color} color={color}></ColorCircle>
-          ))
-        }
+        {colors.map((color) => (
+          <ColorCircle key={color} color={color}></ColorCircle>
+        ))}
       </DivColorPalette>
       <Comments comments={comments} />
       <CommentForm
@@ -73,7 +75,7 @@ export default function ArtPieceDetails({
         setComments={setComments}
         slug={slug}
       />
-      <button onClick={() => window.history.back()}>Back</button>
-    </div>
+      <Button onClick={() => window.history.back()}>Back</Button>
+    </ArtPieceContainer>
   );
 }

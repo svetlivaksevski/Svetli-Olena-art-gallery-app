@@ -13,6 +13,7 @@ const Heading = styled.div`
 const Image = styled.img`
   width: 250px;
   height: auto;
+  border-radius: 20px;
 `;
 
 const Container = styled.div`

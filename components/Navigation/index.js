@@ -8,7 +8,7 @@ const Ul1 = styled.ul`
   list-style-type: none;
   position: fixed;
   width: 100%;
-  background-color: #fff;
+  background-color: #f5f5f5;
   bottom: 0;
   padding: 30px;
   margin-bottom: 0;

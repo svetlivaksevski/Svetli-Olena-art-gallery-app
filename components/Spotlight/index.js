@@ -1,6 +1,7 @@
 import React from "react";
 import FavoriteButton from "../FavoriteButton/FavoriteButton.js";
 import styled from "styled-components";
+import { Satisfy } from "next/font/google";
 
 const Heading = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ const Heading = styled.div`
   font-weight: bold;
   font-size: 24px;
   padding: 20px;
+  color: rgb(59, 64, 66);
 `;
 
 const Image = styled.img`
@@ -23,6 +25,8 @@ const Container = styled.div`
   padding-bottom: 30px;
   margin-top: 20px;
 `;
+const satisfy = Satisfy({ subsets: ["latin"], weight: ["400"] });
+
 export default function Spotlight({
   randomPieceInfo,
   onToggleFavorite,
@@ -30,7 +34,7 @@ export default function Spotlight({
 }) {
   return (
     <Container>
-      <Heading>Spotlight Piece</Heading>
+      <Heading className={satisfy.className}>Spotlight Piece</Heading>
       <FavoriteButton
         onToggleFavorite={() => {
           return onToggleFavorite(randomPieceInfo.slug);

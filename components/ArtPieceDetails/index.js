@@ -37,6 +37,10 @@ const ContainerDetails = styled.div`
 const ContainerComments = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 700px;
+  padding: 20px;
   align-items: center;
   margin-top: 50px;
   margin-bottom: 100px;

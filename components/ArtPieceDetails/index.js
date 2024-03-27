@@ -123,7 +123,7 @@ export default function ArtPieceDetails({
             }
           />
         </Favorite>
-        <div class="dots"></div>
+        <div className="dots"></div>
         <Details>
           <P>
             <Bold>Name:</Bold>
@@ -142,9 +142,9 @@ export default function ArtPieceDetails({
           </P>
         </Details>
       </ContainerDetails>
-      <div class="dots"></div>
+      <div className="dots"></div>
       <ContainerComments>
-        <Comments comments={comments} />
+        <Comments comments={comments} slug={slug} />
 
         <CommentForm
           onSubmitComment={onSubmitComment}

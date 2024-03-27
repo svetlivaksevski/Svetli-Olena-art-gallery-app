@@ -70,10 +70,10 @@ export default function ArtPiecePreview({
           isFavorite={isFavorite}
         />
       </Favorite>
-      <div class="dots"></div>
+      <div className="dots"></div>
       <h3>{name}</h3>
       <p>By: {artist}</p>
-      <div class="dots"></div>
+      <div className="dots"></div>
       <Button>
         <a href={`art-pieces/${slug}`}>More information</a>
       </Button>

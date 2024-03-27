@@ -27,7 +27,6 @@ export default function App({ Component, pageProps }) {
 
   function handleToggle(slug) {
     const info = artPiecesInfo.find((piece) => piece.slug === slug);
-
     if (info) {
       setArtPiecesInfo(
         artPiecesInfo.map((piece) =>
@@ -42,31 +41,27 @@ export default function App({ Component, pageProps }) {
   }
 
   // Handle comments
-
   function handleAddComment(newComment, slug) {
     const date = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
     });
     setComments([{ id: slug, date, ...newComment }, ...comments]);
   }
-
   if (isLoading) return <div>Loading art pieces...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <body>
-      <Layout>
-        <Component
-          {...pageProps}
-          pieces={data}
-          onToggle={artPiecesInfo}
-          artPiecesInfo={artPiecesInfo}
-          isFavorite={artPiecesInfo}
-          onToggleFavorite={handleToggle}
-          onSubmitComment={handleAddComment}
-          comments={comments}
-        />
-      </Layout>
-    </body>
+    <Layout>
+      <Component
+        {...pageProps}
+        pieces={data}
+        onToggle={artPiecesInfo}
+        artPiecesInfo={artPiecesInfo}
+        isFavorite={artPiecesInfo}
+        onToggleFavorite={handleToggle}
+        onSubmitComment={handleAddComment}
+        comments={comments}
+      />
+    </Layout>
   );
 }

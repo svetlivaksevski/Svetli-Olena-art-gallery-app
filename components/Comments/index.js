@@ -1,9 +1,15 @@
 import React from "react";
+import styled from "styled-components";
+
+const Heading = styled.div`
+  font-size: 24px;
+`;
 export default function Comments({ comments, slug }) {
-  const filteredComments = comments.filter((comment) => comment.slug === slug);
+  const filteredComments = comments.filter((comment) => comment.id === slug);
+
   return (
     <div className="comments-container">
-      <h3>Comments</h3>
+      <Heading>Comments</Heading>
       {filteredComments?.length === 0 ? (
         <p>No comments yet.</p>
       ) : (
@@ -12,7 +18,7 @@ export default function Comments({ comments, slug }) {
             <li key={comment.comment}>
               <div className="comment-text">{comment.comment}</div>
               <div>({comment.date})</div>
-              <div class="dots"></div>
+              <div className="dots"></div>
             </li>
           ))}
         </ul>

@@ -64,21 +64,11 @@ export default function Spotlight({
   return (
     <Container>
       <Heading className={satisfy.className}>Spotlight Piece</Heading>
-      <FavoriteButton
-        onToggleFavorite={() => {
-          return onToggleFavorite(randomPieceInfo.slug);
-        }}
-        slug={randomPieceInfo.slug}
-        isFavorite={
-          artPiecesInfo?.find((piece) => piece.slug === randomPieceInfo.slug)
-            ?.isFavorite || false
-        }
-      />
+
       <a href={`art-pieces/${randomPieceInfo.slug}`}>
         <Imagescontainer>
-          {" "}
           <Image src={randomPieceInfo.imageSource} alt={randomPieceInfo.name} />
-        </Imagescontainer>{" "}
+        </Imagescontainer>
       </a>
       <Favorite>
         <FavoriteButton

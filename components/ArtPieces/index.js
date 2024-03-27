@@ -18,7 +18,7 @@ const Heading = styled.div`
   justify-content: space-evenly;
   font-weight: bold;
   font-size: 30px;
-  padding: 20px;
+  padding: 40px;
 `;
 
 export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {

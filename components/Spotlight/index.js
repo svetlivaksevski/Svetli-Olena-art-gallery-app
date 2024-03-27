@@ -8,21 +8,51 @@ const Heading = styled.div`
   font-weight: bold;
   font-size: 24px;
   padding: 20px;
+  color: #008080;
 `;
 
 const Image = styled.img`
   width: 250px;
   height: auto;
   border-radius: 20px;
+  box-shadow: 0 0 10px #e6e5e5;
+  transition: 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+const Imagescontainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 `;
 
 const Container = styled.div`
+  font-family: "Albert Sans", sans-serif;
+  background-color: #ffffff;
+  border-radius: 20px;
+  max-width: 300px;
+  margin: 20px auto;
+  margin-bottom: 150px;
+  padding: 30px;
+`;
+
+const Favorite = styled.div`
+  padding: 10px;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-bottom: 30px;
-  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: solid #ccc;
+  &:hover {
+    background-color: #f5f5f5;
+  }
 `;
+
 export default function Spotlight({
   randomPieceInfo,
   onToggleFavorite,
@@ -31,20 +61,26 @@ export default function Spotlight({
   return (
     <Container>
       <Heading>Spotlight Piece</Heading>
-      <FavoriteButton
-        onToggleFavorite={() => {
-          return onToggleFavorite(randomPieceInfo.slug);
-        }}
-        slug={randomPieceInfo.slug}
-        isFavorite={
-          artPiecesInfo?.find((piece) => piece.slug === randomPieceInfo.slug)
-            ?.isFavorite || false
-        }
-      />
       <a href={`art-pieces/${randomPieceInfo.slug}`}>
-        <Image src={randomPieceInfo.imageSource} alt={randomPieceInfo.name} />
+        <Imagescontainer>
+          {" "}
+          <Image src={randomPieceInfo.imageSource} alt={randomPieceInfo.name} />
+        </Imagescontainer>{" "}
       </a>
-      <p>By {randomPieceInfo.artist}</p>
+      <Favorite>
+        <FavoriteButton
+          onToggleFavorite={() => {
+            return onToggleFavorite(randomPieceInfo.slug);
+          }}
+          slug={randomPieceInfo.slug}
+          isFavorite={
+            artPiecesInfo?.find((piece) => piece.slug === randomPieceInfo.slug)
+              ?.isFavorite || false
+          }
+        />
+      </Favorite>
+      <div class="dots"></div>
+      <p>By: {randomPieceInfo.artist}</p>
     </Container>
   );
 }

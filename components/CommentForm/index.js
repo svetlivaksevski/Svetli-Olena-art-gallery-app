@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 export default function CommentForm({ onSubmitComment, slug }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,6 +18,7 @@ export default function CommentForm({ onSubmitComment, slug }) {
           id="comment"
           rows="5"
           cols="45"
+          placeholder="Write your comment here..."
           required
         />
 

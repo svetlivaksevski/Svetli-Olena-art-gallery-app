@@ -8,7 +8,7 @@ export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
         className="favorite-button"
         onClick={onToggleFavorite}
       >
-        {isFavorite ? "👎" : "👍"}
+        {isFavorite ? "🤍 Remove from favorites" : "❤️ Add in favorites"}
       </span>
     </div>
   );

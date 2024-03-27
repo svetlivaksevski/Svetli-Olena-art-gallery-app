@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <>
+    <body>
       <Layout>
         <Component
           {...pageProps}
@@ -67,6 +67,6 @@ export default function App({ Component, pageProps }) {
           comments={comments}
         />
       </Layout>
-    </>
+    </body>
   );
 }

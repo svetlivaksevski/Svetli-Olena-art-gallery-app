@@ -2,11 +2,15 @@ import React from "react";
 import ArtPiecePreview from "../ArtPiecesPreview/index.js";
 import styled from "styled-components";
 
-const DivArtPieces = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
+  margin-bottom: 150px;
 `;
 
 const Heading = styled.div`
@@ -21,7 +25,7 @@ export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
   return (
     <>
       <Heading>Art Pieces</Heading>
-      <DivArtPieces>
+      <Container>
         {pieces.map((piece) => (
           <ArtPiecePreview
             key={piece.slug}
@@ -33,7 +37,7 @@ export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
             }
           />
         ))}
-      </DivArtPieces>
+      </Container>
     </>
   );
 }

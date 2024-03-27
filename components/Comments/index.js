@@ -11,10 +11,8 @@ export default function Comments({ comments, slug }) {
           {filteredComments?.map((comment) => (
             <li key={comment.comment}>
               <div className="comment-text">{comment.comment}</div>
-              <div className="comment-date-time">
-                ({comment.date}
-                {","} {comment.time})
-              </div>
+              <div>({comment.date})</div>
+              <div class="dots"></div>
             </li>
           ))}
         </ul>

@@ -2,7 +2,7 @@ import React from "react";
 import FavoriteButton from "../FavoriteButton/FavoriteButton.js";
 import styled from "styled-components";
 
-const ImagePreview = styled.img`
+const Image = styled.img`
   border-radius: 20px;
   width: 70%;
   height: auto;
@@ -12,8 +12,36 @@ const ImagePreview = styled.img`
     transform: scale(1.2);
   }
 `;
-const DivGalleryContainer = styled.div`
-  height: 900 px;
+const Imagescontainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+`;
+
+const Container = styled.div`
+  font-family: "Albert Sans", sans-serif;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 250px;
+  padding: 30px;
+`;
+
+const Button = styled.div`
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Favorite = styled.div`
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  border: solid #ccc;
 `;
 
 export default function ArtPiecePreview({
@@ -25,22 +53,27 @@ export default function ArtPiecePreview({
   isFavorite,
 }) {
   return (
-    <DivGalleryContainer>
-      <FavoriteButton
-        onToggleFavorite={() => {
-          return onToggleFavorite(slug, isFavorite);
-        }}
-        isFavorite={isFavorite}
-      />
+    <Container>
       <a href={`art-pieces/${slug}`}>
-        <ImagePreview src={imageSource} alt={name} />
+        <Imagescontainer>
+          <Image src={imageSource} alt={name} />
+        </Imagescontainer>
       </a>
-
+      <Favorite>
+        <FavoriteButton
+          onToggleFavorite={() => {
+            return onToggleFavorite(slug, isFavorite);
+          }}
+          isFavorite={isFavorite}
+        />
+      </Favorite>
+      <div class="dots"></div>
       <h3>{name}</h3>
       <p>By: {artist}</p>
-      <div>
+      <div class="dots"></div>
+      <Button>
         <a href={`art-pieces/${slug}`}>More information</a>
-      </div>
-    </DivGalleryContainer>
+      </Button>
+    </Container>
   );
 }

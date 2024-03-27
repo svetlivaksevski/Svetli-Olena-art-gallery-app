@@ -8,6 +8,7 @@ const Heading = styled.div`
   font-weight: bold;
   font-size: 24px;
   padding: 20px;
+  color: #008080;
 `;
 
 const Image = styled.img`
@@ -39,21 +40,17 @@ const Container = styled.div`
   padding: 30px;
 `;
 
-// const Button = styled.div`
-//   padding: 10px;
-//   align-items: center;
-//   display: flex;
-//   flex-direction: column;
-// `;
-
 const Favorite = styled.div`
   padding: 10px;
   align-items: center;
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
   border-radius: 10px;
   border: solid #ccc;
+  &:hover {
+    background-color: #f5f5f5;
+  }
 `;
 
 export default function Spotlight({
@@ -83,7 +80,7 @@ export default function Spotlight({
         />
       </Favorite>
       <div class="dots"></div>
-      <p>By {randomPieceInfo.artist}</p>
+      <p>By: {randomPieceInfo.artist}</p>
     </Container>
   );
 }

@@ -39,9 +39,12 @@ const Favorite = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
   border-radius: 10px;
   border: solid #ccc;
+  &:hover {
+    background-color: #f5f5f5;
+  }
 `;
 
 export default function ArtPiecePreview({

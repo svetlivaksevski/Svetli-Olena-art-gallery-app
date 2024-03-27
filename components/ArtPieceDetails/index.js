@@ -27,12 +27,11 @@ const ContainerDetails = styled.div`
   font-family: "Albert Sans", sans-serif;
   background-color: #ffffff;
   border-radius: 20px;
-  width: 550px;
-  padding: 20px;
+  padding: 25px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
 `;
 
 const ContainerComments = styled.div`
@@ -51,15 +50,13 @@ const Image = styled.img`
 `;
 
 const Span = styled.div`
-  width: 60px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #008080;
-  color: #ffffff;
-  padding: 15px;
-  border-radius: 10px;
+  color: black;
+  margin: 30px;
+  cursor: pointer;
 `;
 
 const Favorite = styled.div`
@@ -68,11 +65,27 @@ const Favorite = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-
   border-radius: 10px;
   border: solid #ccc;
+  cursor: pointer;
+  &:hover {
+    background-color: #f5f5f5;
+  }
+`;
+const Bold = styled.div`
+  font-weight: bold;
+  color: #008080;
+  padding-bottom: 10px;
 `;
 
+const Details = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
+const P = styled.div`
+  padding: 10px;
+`;
 export default function ArtPieceDetails({
   image,
   name,
@@ -90,7 +103,13 @@ export default function ArtPieceDetails({
 }) {
   return (
     <Container>
+      <Span onClick={() => window.history.back()}>← Go back</Span>
       <ContainerDetails>
+        <DivColorPalette>
+          {colors.map((color) => (
+            <ColorCircle key={color} color={color}></ColorCircle>
+          ))}
+        </DivColorPalette>
         <Image src={image} alt={name} />
         <Favorite>
           <FavoriteButton
@@ -105,16 +124,23 @@ export default function ArtPieceDetails({
           />
         </Favorite>
         <div class="dots"></div>
-        <p>Name: {name}</p>
-        <p>By {artist}</p>
-        <p>Year: {year}</p>
-        <p>Genre: {genre}</p>
-        <div class="dots"></div>
-        <DivColorPalette>
-          {colors.map((color) => (
-            <ColorCircle key={color} color={color}></ColorCircle>
-          ))}
-        </DivColorPalette>
+        <Details>
+          <P>
+            <Bold>Name:</Bold>
+            {name}
+          </P>
+          <P>
+            <Bold>Artist: </Bold>
+            {artist}
+          </P>
+          <P>
+            <Bold>Year: </Bold>
+            {year}
+          </P>
+          <P>
+            <Bold>Genre:</Bold> {genre}
+          </P>
+        </Details>
       </ContainerDetails>
       <div class="dots"></div>
       <ContainerComments>
@@ -125,8 +151,6 @@ export default function ArtPieceDetails({
           setComments={setComments}
           slug={slug}
         />
-        <div class="dots"></div>
-        <Span onClick={() => window.history.back()}>Back</Span>
       </ContainerComments>
     </Container>
   );

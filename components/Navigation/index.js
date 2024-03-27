@@ -1,6 +1,5 @@
-import Link from "next/link";
 import styled from "styled-components";
-
+import Link from "next/link";
 const Ul1 = styled.ul`
   display: flex;
   flex-direction: row;

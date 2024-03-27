@@ -3,11 +3,15 @@ import ArtPiecePreview from "../ArtPiecesPreview/index.js";
 import styled from "styled-components";
 import { Satisfy } from "next/font/google";
 
-const DivArtPieces = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
+  margin-bottom: 150px;
 `;
 
 const Heading = styled.div`
@@ -25,8 +29,9 @@ const satisfy = Satisfy({ subsets: ["latin"], weight: ["400"] });
 export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
   return (
     <>
+
       <Heading className={satisfy.className}>Art Pieces</Heading>
-      <DivArtPieces>
+      <Container>
         {pieces.map((piece) => (
           <ArtPiecePreview
             key={piece.slug}
@@ -38,7 +43,7 @@ export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
             }
           />
         ))}
-      </DivArtPieces>
+      </Container>
     </>
   );
 }

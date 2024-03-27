@@ -1,10 +1,23 @@
 import ArtPiecePreview from "../../components/ArtPiecesPreview/";
 import styled from "styled-components";
 
+const Heading = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 50px;
+`;
+
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 150px;
 `;
 
 const List = styled.div`
@@ -36,7 +49,7 @@ export default function FavoritesPage({
 
   return (
     <>
-      <h1>My favorite art pieces</h1>
+      <Heading>My favorite art pieces</Heading>
       <Container>
         {favoritePieces.length > 0 ? (
           favoritePieces.map((piece) => (

@@ -82,7 +82,7 @@ export default function Spotlight({
           }
         />
       </Favorite>
-      <div class="dots"></div>
+      <div className="dots"></div>
       <p>By: {randomPieceInfo.artist}</p>
     </Container>
   );
